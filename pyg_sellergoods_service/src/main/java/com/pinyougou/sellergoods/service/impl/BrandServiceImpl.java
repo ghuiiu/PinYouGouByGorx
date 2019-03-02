@@ -46,7 +46,7 @@ public class BrandServiceImpl implements BrandService {
      */
     @Override
     public void add(TbBrand brand) {
-        brandMapper.insert(brand);
+        brandMapper.add(brand);
     }
 
     /**
@@ -56,7 +56,7 @@ public class BrandServiceImpl implements BrandService {
      */
     @Override
     public void update(TbBrand brand) {
-
+        brandMapper.update(brand);
     }
 
     /**
@@ -67,7 +67,19 @@ public class BrandServiceImpl implements BrandService {
      */
     @Override
     public TbBrand findOne(Long id) {
-        return null;
+        return brandMapper.findOne(id);
+    }
+
+    /**
+     * 批量删除
+     *
+     * @param ids
+     */
+    @Override
+    public void delete(Long[] ids) {
+        for (Long id : ids) {
+            brandMapper.dele(id);
+        }
     }
 
 }

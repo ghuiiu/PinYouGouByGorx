@@ -5,6 +5,7 @@ import com.entity.PageResult;
 import com.entity.Result;
 import com.pinyougou.pojo.TbBrand;
 import com.pinyougou.sellergoods.service.BrandService;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,7 +33,7 @@ public class BrandController {
     }
 
     @RequestMapping("/add")
-    public Result add(TbBrand tbBrand){
+    public Result add(@RequestBody TbBrand tbBrand){
         try {
             brandService.add(tbBrand);
             return new Result(true,"新增成功");
@@ -43,7 +44,7 @@ public class BrandController {
     }
 
     @RequestMapping("/update")
-    public Result update(TbBrand tbBrand){
+    public Result update(@RequestBody TbBrand tbBrand){
         try {
             brandService.update(tbBrand);
             return new Result(true,"修改成功");
@@ -59,6 +60,16 @@ public class BrandController {
     }
 
 
+    @RequestMapping("/delete")
+    public Result delete(Long[] ids){
+        try {
+            brandService.delete(ids);
+            return new Result(true,"删除成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false,"删除失败");
+        }
+    }
 }
 
 
