@@ -6,7 +6,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<select id="findAll" resultType="com.pinyougou.pojo.TbBrand">
-		select id, name ,first_char from tb_brand
+		select id, name ,first_char as firstChar from tb_brand
 	</select>
-	
+
+    <insert id="add" parameterType="com.pinyougou.pojo.TbBrand">
+		INSERT INTO `tb_brand` ( `name`, `first_char`) VALUES (#{name}, #{firstChar});
+	</insert>
+
+    <select id="findOne" parameterType="Long" resultType="com.pinyougou.pojo.TbBrand">
+		select id,name,first_char as firstChar from tb_brand where id = #{id}
+	</select>
+
+    <update id="update" parameterType="com.pinyougou.pojo.TbBrand">
+		UPDATE `tb_brand` SET `name`=#{name}, `first_char`=#{firstChar} WHERE id = #{id}
+	</update>
+
+    <delete id="dele" parameterType="Long">
+		delete from tb_brand where id = #{id}
+	</delete>
 </mapper>
