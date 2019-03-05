@@ -1,5 +1,7 @@
 package com.pinyougou.sellergoods.service.impl;
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.Page;
@@ -99,5 +101,16 @@ public class BrandServiceImpl implements BrandService {
 		Page<TbBrand> page= (Page<TbBrand>)brandMapper.selectByExample(example);		
 		return new PageResult(page.getTotal(), page.getResult());
 	}
-	
+
+	/**
+	 * 需求:查询品牌下拉列表
+	 * 查询数据格式：[{id:'1',text:'联想'},{id:'2',text:'华为'}]
+	 * 返回值：List<Map>
+	 */
+	@Override
+	public List<Map> findBrandList() {
+		return brandMapper.selectOptionList();
+	}
+
+
 }

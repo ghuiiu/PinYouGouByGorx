@@ -29,5 +29,34 @@ app.controller('baseController' ,function($scope){
             $scope.selectIds.splice(idx, 1);//删除 
 		}
 	}
-	
-});	
+
+    //组装json文本数据
+	$scope.jsonToStr = function (jsonStr, key) {
+        //把json字符串转换json对象
+		var typeJson = JSON.parse(jsonStr);
+        //定义字符串对象，拼接json数组数据
+		var value = "";
+		//循环json数组对象
+		for (var i = 0;i<typeJson.length;i++){
+			if (i > 0) {
+				value+=","
+			}
+			value += typeJson[i][key]
+		}
+		return value;
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+

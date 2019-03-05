@@ -5,6 +5,7 @@ import com.pinyougou.pojo.TbSpecificationExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface TbSpecificationMapper {
     /**
@@ -94,4 +95,6 @@ public interface TbSpecificationMapper {
      * @mbggenerated Sat Mar 02 16:57:17 CST 2019
      */
     int updateByPrimaryKey(TbSpecification record);
+
+    List<Map> selectOptionList();
 }

@@ -34,7 +34,7 @@ app.controller('specificationController' ,function($scope,$controller   ,specifi
 	//保存 
 	$scope.save=function(){				
 		var serviceObject;//服务层对象  				
-		if($scope.entity.id!=null){//如果有ID
+		if($scope.entity.specification.id!=null){//如果有ID
 			serviceObject=specificationService.update( $scope.entity ); //修改  
 		}else{
 			serviceObject=specificationService.add( $scope.entity  );//增加 
@@ -74,11 +74,19 @@ app.controller('specificationController' ,function($scope,$controller   ,specifi
 				$scope.paginationConf.totalItems=response.total;//更新总记录数
 			}			
 		);
-	}
+	};
 
-    //新增选项行
-	$scope.addTableRow=function () {
-		$scope.entity.specificationOptionList.push({});
+
+
+    //增加规格选项空行
+	$scope.addTableRow = function () {
+        $scope.entity.specificationOptionList.push({});
+    }
+
+    //批量选项删除
+
+	$scope.deleTableRow=function (index) {
+		$scope.entity.specificationOptionList.splice(index,1);
     }
 });	
 

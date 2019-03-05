@@ -5,6 +5,7 @@ import com.pinyougou.pojo.TbBrandExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface TbBrandMapper {
     /**
@@ -94,4 +95,12 @@ public interface TbBrandMapper {
      * @mbggenerated Sat Mar 02 16:57:17 CST 2019
      */
     int updateByPrimaryKey(TbBrand record);
+
+    /**
+     * 需求:查询品牌下拉列表
+     * 查询数据格式：[{id:'1',text:'联想'},{id:'2',text:'华为'}]
+     * 返回值：List<Map>
+     *
+     */
+    List<Map> selectOptionList();
 }
