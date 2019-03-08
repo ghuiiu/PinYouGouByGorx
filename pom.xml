@@ -13,6 +13,7 @@
         <module>pyg_sellergoods_interface</module>
         <module>pyg_sellergoods_service</module>
         <module>pyg_manager_web</module>
+        <module>pyg-shop-web</module>
     </modules>
     <packaging>pom</packaging>
 

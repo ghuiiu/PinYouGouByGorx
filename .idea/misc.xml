@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/pinyougou-shop-web" />
+    <file type="web" url="file://$PROJECT_DIR$/pyg-shop-web" />
     <file type="web" url="file://$PROJECT_DIR$/pyg_manager_web" />
     <file type="web" url="file://$PROJECT_DIR$/pyg_sellergoods_service" />
   </component>
@@ -14,6 +16,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/pyg_dao/pom.xml" />
+        <option value="$PROJECT_DIR$/pyg-shop-web/pom.xml" />
       </list>
     </option>
   </component>
