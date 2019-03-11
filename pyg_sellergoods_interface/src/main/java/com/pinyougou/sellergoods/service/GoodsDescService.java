@@ -1,8 +1,6 @@
 package com.pinyougou.sellergoods.service;
 import java.util.List;
-import java.util.Map;
-
-import com.pinyougou.pojo.TbTypeTemplate;
+import com.pinyougou.pojo.TbGoodsDesc;
 
 import entity.PageResult;
 /**
@@ -10,13 +8,13 @@ import entity.PageResult;
  * @author Administrator
  *
  */
-public interface TypeTemplateService {
+public interface GoodsDescService {
 
 	/**
 	 * 返回全部列表
 	 * @return
 	 */
-	public List<TbTypeTemplate> findAll();
+	public List<TbGoodsDesc> findAll();
 	
 	
 	/**
@@ -29,13 +27,13 @@ public interface TypeTemplateService {
 	/**
 	 * 增加
 	*/
-	public void add(TbTypeTemplate typeTemplate);
+	public void add(TbGoodsDesc goodsDesc);
 	
 	
 	/**
 	 * 修改
 	 */
-	public void update(TbTypeTemplate typeTemplate);
+	public void update(TbGoodsDesc goodsDesc);
 	
 
 	/**
@@ -43,7 +41,7 @@ public interface TypeTemplateService {
 	 * @param id
 	 * @return
 	 */
-	public TbTypeTemplate findOne(Long id);
+	public TbGoodsDesc findOne(Long id);
 	
 	
 	/**
@@ -58,11 +56,6 @@ public interface TypeTemplateService {
 	 * @param pageSize 每页记录数
 	 * @return
 	 */
-	public PageResult findPage(TbTypeTemplate typeTemplate, int pageNum, int pageSize);
-
-	/**
-	 * 返回规格列表
-	 * @return
-	 */
-	public List<Map> findSpecList(Long id);
+	public PageResult findPage(TbGoodsDesc goodsDesc, int pageNum, int pageSize);
+	
 }
