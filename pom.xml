@@ -15,6 +15,13 @@
         <module>pyg_manager_web</module>
         <module>pyg-shop-web</module>
         <module>pyg_common</module>
+        <module>pyg_content_interface</module>
+        <module>pyg-content-service</module>
+        <module>pyg-portal-web</module>
+        <module>pyg_search_interface</module>
+        <module>pyg-search-service</module>
+        <module>pyg-search-web</module>
+        <module>pyg_solr_util</module>
     </modules>
     <packaging>pom</packaging>
 
