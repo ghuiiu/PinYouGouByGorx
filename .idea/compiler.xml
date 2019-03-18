@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="pinyougouportalweb" />
         <module name="pyg-content-service" />
+        <module name="pyg-page-interface" />
         <module name="pyg-portal-web" />
         <module name="pyg-search-service" />
         <module name="pyg-search-web" />
@@ -16,6 +17,7 @@
         <module name="pyg_content_interface" />
         <module name="pyg_dao" />
         <module name="pyg_manager_web" />
+        <module name="pyg_page_service" />
         <module name="pyg_pojo" />
         <module name="pyg_search_interface" />
         <module name="pyg_sellergoods_interface" />
@@ -26,6 +28,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
       <module name="pinyougouportalweb" target="1.8" />
+      <module name="pyg-page-service" target="1.8" />
       <module name="pygsearchservice" target="1.8" />
     </bytecodeTargetLevel>
   </component>

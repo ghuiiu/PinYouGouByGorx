@@ -60,7 +60,7 @@ public class TbItem implements Serializable{
 
     private String spec;
 
-    /*@Dynamic
+    @Dynamic
     @Field("item_spec_*")
     private Map<String,String> specMap;
     
@@ -70,7 +70,7 @@ public class TbItem implements Serializable{
 
 	public void setSpecMap(Map<String, String> specMap) {
 		this.specMap = specMap;
-	}*/
+	}
 
 	@Field("item_seller")
     private String seller;

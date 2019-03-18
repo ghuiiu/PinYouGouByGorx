@@ -22,6 +22,8 @@
         <module>pyg-search-service</module>
         <module>pyg-search-web</module>
         <module>pyg_solr_util</module>
+        <module>pyg-page-interface</module>
+        <module>pyg_page_service</module>
     </modules>
     <packaging>pom</packaging>
 

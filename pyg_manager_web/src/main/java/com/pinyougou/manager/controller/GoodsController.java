@@ -21,16 +21,15 @@ public class GoodsController {
 
 	@Reference
 	private GoodsService goodsService;
-	
+
 	/**
 	 * 返回全部列表
-	 * @return
 	 */
 	@RequestMapping("/findAll")
-	public List<TbGoods> findAll(){			
+	public List<TbGoods> findAll(){
 		return goodsService.findAll();
 	}
-	
+
 	
 	/**
 	 * 返回全部列表
@@ -107,6 +106,7 @@ public class GoodsController {
 			return new Result(false, "审核失败");
 		}
 	}
+
 }
 
 

@@ -1,12 +1,9 @@
 package com.pinyougou.shop.controller;
 import java.util.List;
 
-import com.pinyougou.mapper.TbBrandMapper;
-import com.pinyougou.mapper.TbItemCatMapper;
-import com.pinyougou.mapper.TbItemMapper;
-import com.pinyougou.mapper.TbSellerMapper;
+import com.pinyougou.page.service.ItemPageService;
+import com.pinyougou.search.service.ItemSearchService;
 import entity.Goods;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +26,12 @@ public class GoodsController {
 	@Reference
 	private GoodsService goodsService;
 
+	@Reference
+	private ItemSearchService itemSearchService;
 
+	@Reference
+	private ItemPageService itemPageService;
+	
 	/**
 	 * 返回全部列表
 	 * @return
@@ -56,10 +58,12 @@ public class GoodsController {
 	 */
 	@RequestMapping("/add")
 	public Result add(@RequestBody Goods goods){
+
+		//获取sellerId
+		String sellerId = SecurityContextHolder.getContext().getAuthentication().getName();
+		goods.getGoods().setSellerId(sellerId);
+
 		try {
-			String name = SecurityContextHolder.getContext().getAuthentication().getName();
-			//设置商家ID
-			goods.getGoods().setSellerId(name);
 			goodsService.add(goods);
 			return new Result(true, "增加成功");
 		} catch (Exception e) {
@@ -119,12 +123,45 @@ public class GoodsController {
 	 */
 	@RequestMapping("/search")
 	public PageResult search(@RequestBody TbGoods goods, int page, int rows  ){
-        //获取商家ID
-        String name = SecurityContextHolder.getContext().getAuthentication().getName();
-        //添加查询条件
-        goods.setSellerId(name);
-        return goodsService.findPage(goods, page, rows);
+		//获取登录用户名
+		String sellerId = SecurityContextHolder.getContext().getAuthentication().getName();
+		goods.setSellerId(sellerId);
 
+		return goodsService.findPage(goods, page, rows);		
 	}
-	
+
+	/**
+	 * 修改商品状态
+	 * @param ids
+	 * @param status
+	 * @return
+	 */
+	@RequestMapping("/updateStatus")
+	public Result updateStatus(Long[] ids,String status){
+		System.out.println(ids[0].toString());
+
+		//商品上下架逻辑
+		if("5".equals(status)){//ids是goods的多个id
+			//itemSearchService.importItemToSolr(ids);
+
+			//生成页面
+			for (Long id : ids) {
+				itemPageService.createHtml(id);
+			}
+		}
+		if("6".equals(status)){
+			itemSearchService.removeItemFromSolr(ids);
+
+			//删除页面
+		}
+
+		try {
+			goodsService.updateStatus(ids, status);
+
+			return new Result(true, "提交成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new Result(false, "提交失败");
+		}
+	}
 }

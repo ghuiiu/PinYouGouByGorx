@@ -30,4 +30,7 @@ app.service('goodsService',function($http){
 		return $http.post('../goods/search.do?page='+page+"&rows="+rows, searchEntity);
 	}
 
+	this.updateStatus = function (ids,status) {
+		return $http.get('../goods/updateStatus.do?ids='+ids+"&status="+status);
+    }
 });

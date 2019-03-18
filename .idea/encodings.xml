@@ -2,7 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/pyg-content-service" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/pyg-search-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg-page-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pyg-search-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pyg-search-web" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />

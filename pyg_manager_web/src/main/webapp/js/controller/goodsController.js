@@ -76,7 +76,7 @@ app.controller('goodsController' ,function($scope,$controller,goodsService,itemC
 		);
 	}
 
-    $scope.status=['未审核','已审核','审核未通过','关闭'];//商品状态
+    $scope.status=['未审核','已审核','审核未通过','关闭','上架','下架'];//商品状态
 
     $scope.itemCatList=[];//商品分类列表
     //查询所有分类数据

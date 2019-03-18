@@ -14,11 +14,13 @@
     <file type="web" url="file://$PROJECT_DIR$/pinyougou-portal-web" />
     <file type="web" url="file://$PROJECT_DIR$/pinyougou-shop-web" />
     <file type="web" url="file://$PROJECT_DIR$/pyg-content-service" />
+    <file type="web" url="file://$PROJECT_DIR$/pyg-page-service" />
     <file type="web" url="file://$PROJECT_DIR$/pyg-portal-web" />
     <file type="web" url="file://$PROJECT_DIR$/pyg-search-service" />
     <file type="web" url="file://$PROJECT_DIR$/pyg-search-web" />
     <file type="web" url="file://$PROJECT_DIR$/pyg-shop-web" />
     <file type="web" url="file://$PROJECT_DIR$/pyg_manager_web" />
+    <file type="web" url="file://$PROJECT_DIR$/pyg_page_service" />
     <file type="web" url="file://$PROJECT_DIR$/pyg_sellergoods_service" />
   </component>
   <component name="Kotlin2JsCompilerArguments">
@@ -33,6 +35,7 @@
         <option value="$PROJECT_DIR$/pyg-shop-web/pom.xml" />
         <option value="$PROJECT_DIR$/pyg-portal-web/pom.xml" />
         <option value="$PROJECT_DIR$/pyg-search-service/pom.xml" />
+        <option value="$PROJECT_DIR$/pyg_page_service/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
