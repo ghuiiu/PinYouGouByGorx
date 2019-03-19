@@ -1,19 +1,28 @@
 package com.pinyougou.shop.controller;
 import java.util.List;
 
-import com.pinyougou.page.service.ItemPageService;
-import com.pinyougou.search.service.ItemSearchService;
+
 import entity.Goods;
+import org.apache.activemq.command.ActiveMQQueue;
+import org.apache.activemq.command.ActiveMQTopic;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.dubbo.config.annotation.Reference;
+import org.springframework.jms.core.JmsTemplate;
 import com.pinyougou.pojo.TbGoods;
 import com.pinyougou.sellergoods.service.GoodsService;
 
 import entity.PageResult;
 import entity.Result;
+
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Session;
+
 /**
  * controller
  * @author Administrator
@@ -26,12 +35,20 @@ public class GoodsController {
 	@Reference
 	private GoodsService goodsService;
 
-	@Reference
-	private ItemSearchService itemSearchService;
+	@Autowired
+	private JmsTemplate jmsTemplate;
 
-	@Reference
-	private ItemPageService itemPageService;
-	
+	@Autowired
+	private ActiveMQQueue solrCreateDestination;//导入solr库
+
+	@Autowired
+	private ActiveMQQueue solrDeleteDestination;//删除solr库
+
+	@Autowired
+	private ActiveMQTopic pageCreateDestination;//生成页面
+
+	@Autowired
+	private ActiveMQTopic pageDeleteDestination;//删除页面
 	/**
 	 * 返回全部列表
 	 * @return
@@ -138,21 +155,42 @@ public class GoodsController {
 	 */
 	@RequestMapping("/updateStatus")
 	public Result updateStatus(Long[] ids,String status){
-		System.out.println(ids[0].toString());
 
 		//商品上下架逻辑
-		if("5".equals(status)){//ids是goods的多个id
+		if("5".equals(status)){ //ids是goods的多个id
 			//itemSearchService.importItemToSolr(ids);
-
+			//发送导入solr库消息
+			jmsTemplate.send(solrCreateDestination, new MessageCreator() {
+				@Override
+				public Message createMessage(Session session) throws JMSException {
+					return session.createObjectMessage(ids);
+				}
+			});
 			//生成页面
-			for (Long id : ids) {
-				itemPageService.createHtml(id);
-			}
+			jmsTemplate.send(pageCreateDestination, new MessageCreator() {
+				@Override
+				public Message createMessage(Session session) throws JMSException {
+					return session.createObjectMessage(ids );
+				}
+			});
 		}
 		if("6".equals(status)){
-			itemSearchService.removeItemFromSolr(ids);
-
+			System.out.println(status);
+			//发消息删除solr库
+			jmsTemplate.send(solrDeleteDestination, new MessageCreator() {
+				@Override
+				public Message createMessage(Session session) throws JMSException {
+					return session.createObjectMessage(ids);
+				}
+			});
 			//删除页面
+			//发消息删除页面
+			jmsTemplate.send(pageDeleteDestination, new MessageCreator() {
+				@Override
+				public Message createMessage(Session session) throws JMSException {
+					return session.createObjectMessage(ids);
+				}
+			});
 		}
 
 		try {
@@ -165,3 +203,19 @@ public class GoodsController {
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
