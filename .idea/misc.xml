@@ -22,6 +22,9 @@
     <file type="web" url="file://$PROJECT_DIR$/pyg_manager_web" />
     <file type="web" url="file://$PROJECT_DIR$/pyg_page_service" />
     <file type="web" url="file://$PROJECT_DIR$/pyg_sellergoods_service" />
+    <file type="web" url="file://$PROJECT_DIR$/pyg_sms" />
+    <file type="web" url="file://$PROJECT_DIR$/pyg_user_service" />
+    <file type="web" url="file://$PROJECT_DIR$/pyg_user_web" />
   </component>
   <component name="Kotlin2JsCompilerArguments">
     <option name="sourceMapEmbedSources" />

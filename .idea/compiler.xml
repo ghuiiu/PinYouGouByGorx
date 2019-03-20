@@ -22,7 +22,11 @@
         <module name="pyg_search_interface" />
         <module name="pyg_sellergoods_interface" />
         <module name="pyg_sellergoods_service" />
+        <module name="pyg_sms" />
         <module name="pyg_solr_util" />
+        <module name="pyg_user_interface" />
+        <module name="pyg_user_service" />
+        <module name="pyg_user_web" />
         <module name="pygsearchservice" />
       </profile>
     </annotationProcessing>

@@ -24,6 +24,10 @@
         <module>pyg_solr_util</module>
         <module>pyg-page-interface</module>
         <module>pyg_page_service</module>
+        <module>pyg_sms</module>
+        <module>pyg_user_interface</module>
+        <module>pyg_user_service</module>
+        <module>pyg_user_web</module>
     </modules>
     <packaging>pom</packaging>
 
