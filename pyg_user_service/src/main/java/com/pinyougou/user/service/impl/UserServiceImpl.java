@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -41,6 +42,12 @@ public class UserServiceImpl implements UserService {
 	public void add(TbUser user) {
 		user.setCreated(new Date());//创建日期
 		user.setUpdated(new Date());//修改日期
+
+		//先将密码进行加密处理
+		String password = DigestUtils.md5Hex(user.getPassword());//对密码加密，apache框架的
+
+		user.setPassword(password);
+
 		userMapper.insert(user);		
 	}
 

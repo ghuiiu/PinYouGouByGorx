@@ -36,5 +36,22 @@ app.controller('userController' ,function($scope,$controller   ,userService){
 		)
     }
 
-    
+    //得到登陆人账号
+    $scope.showName = function () {
+		userService.showName().success(
+			function (response) {
+				$scope.loginName = response.loginName;
+            }
+		)
+    }
+
 });	
+
+
+
+
+
+
+
+
+

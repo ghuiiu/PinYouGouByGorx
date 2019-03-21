@@ -28,6 +28,7 @@
         <module>pyg_user_interface</module>
         <module>pyg_user_service</module>
         <module>pyg_user_web</module>
+        <module>pyg_cart_interface</module>
     </modules>
     <packaging>pom</packaging>
 

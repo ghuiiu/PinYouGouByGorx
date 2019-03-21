@@ -7,6 +7,7 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	<context:property-placeholder location="classpath:config/application.properties" />
 
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="true">
@@ -26,5 +27,6 @@
 	<!-- 引用dubbo 服务 -->
 	<dubbo:application name="pinyougou-user-web" />
 	<dubbo:registry address="zookeeper://192.168.25.128:2181" />
-	<dubbo:annotation package="com.pinyougou.user.controlle" />
+	<dubbo:annotation package="com.pinyougou.user.controller" />
+
 </beans>

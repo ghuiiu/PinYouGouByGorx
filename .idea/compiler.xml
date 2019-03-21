@@ -13,6 +13,7 @@
         <module name="pyg-search-service" />
         <module name="pyg-search-web" />
         <module name="pyg-shop-web" />
+        <module name="pyg_cart_interface" />
         <module name="pyg_common" />
         <module name="pyg_content_interface" />
         <module name="pyg_dao" />

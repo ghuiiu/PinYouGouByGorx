@@ -11,4 +11,7 @@ app.service('userService',function($http){
 		return $http.get('user/sendSms.do?phone='+phone);
     }
 
+    this.showName = function () {
+        return $http.get('user/showName.do');
+    }
 });
