@@ -4,6 +4,8 @@
     <file url="file://$PROJECT_DIR$/pyg-content-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pyg-search-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pyg-search-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg_cart_service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pyg_order_service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pyg_sms" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pyg_user_service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pyg_user_web" charset="UTF-8" />
