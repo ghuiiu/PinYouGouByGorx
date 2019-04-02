@@ -25,6 +25,8 @@
     <file type="web" url="file://$PROJECT_DIR$/pyg_manager_web" />
     <file type="web" url="file://$PROJECT_DIR$/pyg_order_service" />
     <file type="web" url="file://$PROJECT_DIR$/pyg_page_service" />
+    <file type="web" url="file://$PROJECT_DIR$/pyg_page_web" />
+    <file type="web" url="file://$PROJECT_DIR$/pyg_pay_service" />
     <file type="web" url="file://$PROJECT_DIR$/pyg_sellergoods_service" />
     <file type="web" url="file://$PROJECT_DIR$/pyg_sms" />
     <file type="web" url="file://$PROJECT_DIR$/pyg_user_service" />
