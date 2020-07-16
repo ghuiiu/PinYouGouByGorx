@@ -21,7 +21,7 @@ public class SmsController {
 
     @RequestMapping("sms")
     public String sendSms(String phone,String code){
-        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "LTAIH4n1FyGjMgsM", "fe1OT74dHNEKn2X2AG7YSLwJLrnhid");
+        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "", "");
         IAcsClient client = new DefaultAcsClient(profile);
 
         CommonRequest request = new CommonRequest();
